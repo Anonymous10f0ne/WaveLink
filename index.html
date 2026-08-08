@@ -1,39 +1,241 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WaveLink | The Future of Creator Connections</title>
+<title>WaveLink | Creator Platform</title>
 
 <meta name="description" content="WaveLink is a next-generation digital creator platform currently in development.">
 
 <style>
 
-*{
+* {
+    box-sizing: border-box;
+}
 
-box-sizing:border-box;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050816;
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.wave {
+    width: 75px;
+    height: 75px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #00aff0, #7c3cff);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 35px #00aff0;
+}
+
+.wave:before,
+.wave:after {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 28px;
+    left: -20%;
+    background: white;
+    border-radius: 50%;
+}
+
+.wave:before {
+    top: 22px;
+}
+
+.wave:after {
+    top: 45px;
+    opacity: .45;
+}
+
+.logo-text {
+    font-size: 58px;
+    font-weight: 900;
+    letter-spacing: -4px;
+    background: linear-gradient(90deg, #00aff0, #00ffe0, #8b5cf6);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 40px auto 20px;
+    max-width: 800px;
+}
+
+.highlight {
+    color: #00aff0;
+}
+
+.hero-text {
+    max-width: 650px;
+    margin: auto;
+    color: #aeb8cc;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 30px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00aff0, #7c3cff);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 30px rgba(0,175,240,.4);
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 25px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.card h2 {
+    font-size: 27px;
+}
+
+.card p,
+.card li {
+    color: #aeb8cc;
+    line-height: 1.7;
+}
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: #68758d;
+}
+
+@media (max-width: 600px) {
+
+    .logo {
+        flex-direction: column;
+    }
+
+    .logo-text {
+        font-size: 50px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
 
 }
 
-body{
+</style>
+</head>
 
-margin:0;
+<body>
 
-font-family:
+<header>
 
-Inter,
+<div class="logo">
 
-system-ui,
+<div class="wave"></div>
 
-Arial,
+<div class="logo-text">
+WaveLink
+</div>
 
-sans-serif;
+</div>
 
-background:
+<h1>
+The next wave of
+<span class="highlight">creator connections.</span>
+</h1>
 
-radial-gradient(circl
+<p class="hero-text">
+WaveLink is a next-generation digital creator platform currently in development, designed to help creators connect with their audiences and build stronger digital communities.
+</p>
+
+<a class="button" href="#about">
+Explore WaveLink
+</a>
+
+</header>
+
+<main class="container">
+
+<div class="card" id="about">
+
+<h2>🌊 Built for Creators</h2>
+
+<p>
+WaveLink is being developed to give creators modern tools for building profiles, connecting with subscribers, and creating engaging digital experiences.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>⚡ Our Vision</h2>
+
+<ul>
+<li>Modern creator profiles</li>
+<li>Community and subscriber tools</li>
+<li>Mobile-first experiences</li>
+<li>Digital content management</li>
+<li>Creator-focused technology</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>🚀 Coming Soon</h2>
+
+<p>
+WaveLink is currently in development and testing. We are building the platform and infrastructure for a future launch.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Business Information</h2>
+
+<p>
+<strong>WaveLink</strong><br>
+Digital Creator Platform / Software Services<br>
+Washington, USA
+</p>
+
+</div>
+
+</main>
+
+<footer>
+
+© 2026 WaveLink 🌊<br>
+The future is connected.
+
+</footer>
+
+</body>
+</html>
