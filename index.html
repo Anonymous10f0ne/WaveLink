@@ -1,144 +1,162 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050816">
-<meta name="description" content="WaveLink is a next-generation creator platform built for creators, communities, and digital experiences.">
-<title>WaveLink — The Next Wave</title>
+
+<title>WaveLink | 18+ Creator Platform</title>
+
+<meta name="description" content="WaveLink is an 18+ digital creator platform in development, designed to help adult creators build communities and connect with their audiences.">
 
 <style>
-:root {
+:root{
     --bg:#050816;
-    --panel:rgba(255,255,255,.07);
+    --panel:rgba(255,255,255,.055);
     --line:rgba(255,255,255,.12);
-    --text:#f8fbff;
-    --muted:#a8b3c7;
+    --text:#f7fbff;
+    --muted:#a7b3c8;
     --cyan:#00c8ff;
-    --blue:#168cff;
+    --blue:#238cff;
     --violet:#8b5cf6;
     --pink:#ff4ecd;
+    --green:#42e8a0;
 }
 
-* {
+*{
     box-sizing:border-box;
 }
 
-html {
+html{
     scroll-behavior:smooth;
 }
 
-body {
+body{
     margin:0;
-    min-height:100vh;
     color:var(--text);
     font-family:Arial,Helvetica,sans-serif;
     background:
-        radial-gradient(circle at 15% 10%,rgba(0,200,255,.16),transparent 28%),
-        radial-gradient(circle at 85% 20%,rgba(139,92,246,.18),transparent 30%),
+        radial-gradient(circle at 10% 5%,rgba(0,200,255,.16),transparent 28%),
+        radial-gradient(circle at 90% 15%,rgba(139,92,246,.18),transparent 30%),
         radial-gradient(circle at 50% 80%,rgba(255,78,205,.08),transparent 32%),
         var(--bg);
-    overflow-x:hidden;
+    line-height:1.6;
 }
 
-body:before {
+body:before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
+    opacity:.45;
     background-image:
         linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
         linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
     background-size:44px 44px;
 }
 
-a {
+a{
     color:inherit;
 }
 
-.wrap {
-    width:min(1120px,calc(100% - 36px));
+.wrap{
+    width:min(1120px,calc(100% - 32px));
     margin:auto;
 }
 
-nav {
+nav{
+    position:relative;
+    z-index:5;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:24px 0;
+    padding:22px 0;
 }
 
-.brand {
+.brand{
     display:flex;
     align-items:center;
     gap:11px;
     text-decoration:none;
-    font-weight:900;
     font-size:21px;
+    font-weight:900;
 }
 
-.brand-mark {
-    width:42px;
-    height:42px;
+.logo{
+    width:43px;
+    height:43px;
     position:relative;
     overflow:hidden;
     border-radius:14px;
     background:linear-gradient(135deg,var(--cyan),var(--blue),var(--violet));
-    box-shadow:0 0 30px rgba(0,200,255,.45);
+    box-shadow:0 0 32px rgba(0,200,255,.45);
 }
 
-.brand-mark:before,
-.brand-mark:after {
+.logo:before,
+.logo:after{
     content:"";
     position:absolute;
-    width:140%;
+    width:145%;
     height:12px;
-    left:-20%;
+    left:-22%;
     border-radius:50%;
     background:white;
     transform:rotate(-8deg);
 }
 
-.brand-mark:before {
+.logo:before{
     top:12px;
 }
 
-.brand-mark:after {
-    top:23px;
-    opacity:.42;
+.logo:after{
+    top:25px;
+    opacity:.38;
 }
 
-.nav-pill {
-    padding:10px 16px;
-    border-radius:999px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.05);
+.nav-links{
+    display:flex;
+    gap:18px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#c8d2e2;
+    text-decoration:none;
     font-size:13px;
-    font-weight:bold;
 }
 
-.hero {
+.nav-badge{
+    padding:9px 14px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    font-size:12px;
+    font-weight:800;
+}
+
+.hero{
     position:relative;
     text-align:center;
-    padding:75px 0 90px;
+    padding:78px 0 85px;
 }
 
-.hero-mark {
-    width:96px;
-    height:96px;
+.hero-logo{
+    width:100px;
+    height:100px;
     margin:0 auto 27px;
     position:relative;
     overflow:hidden;
-    border-radius:31px;
-    background:linear-gradient(135deg,var(--cyan),#00f0d0,var(--violet));
+    border-radius:32px;
+    background:linear-gradient(135deg,var(--cyan),#00efd0,var(--violet));
     box-shadow:
-        0 0 35px rgba(0,200,255,.6),
-        0 0 90px rgba(139,92,246,.25);
+        0 0 40px rgba(0,200,255,.55),
+        0 0 100px rgba(139,92,246,.25);
     animation:float 4s ease-in-out infinite;
 }
 
-.hero-mark:before,
-.hero-mark:after {
+.hero-logo:before,
+.hero-logo:after{
     content:"";
     position:absolute;
     width:150%;
@@ -149,60 +167,61 @@ nav {
     transform:rotate(-8deg);
 }
 
-.hero-mark:before {
-    top:24px;
+.hero-logo:before{
+    top:25px;
 }
 
-.hero-mark:after {
-    top:60px;
-    opacity:.28;
+.hero-logo:after{
+    top:61px;
+    opacity:.3;
 }
 
-@keyframes float {
-    0%,100% {
+@keyframes float{
+    0%,100%{
         transform:translateY(0) rotate(-2deg);
     }
-    50% {
+
+    50%{
         transform:translateY(-9px) rotate(2deg);
     }
 }
 
-.badge {
+.badge{
     display:inline-flex;
     align-items:center;
     gap:8px;
     padding:8px 14px;
-    border-radius:999px;
     border:1px solid rgba(0,200,255,.25);
+    border-radius:999px;
     background:rgba(0,200,255,.07);
-    color:#8beaff;
-    font-size:12px;
-    font-weight:800;
+    color:#8cecff;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.8px;
     text-transform:uppercase;
-    letter-spacing:.7px;
 }
 
-.dot {
+.dot{
     width:7px;
     height:7px;
     border-radius:50%;
-    background:#38f8b1;
-    box-shadow:0 0 12px #38f8b1;
+    background:var(--green);
+    box-shadow:0 0 12px var(--green);
 }
 
-h1 {
+h1{
     max-width:950px;
     margin:25px auto 20px;
-    font-size:clamp(48px,8vw,88px);
-    line-height:.96;
+    font-size:clamp(46px,8vw,86px);
+    line-height:.97;
     letter-spacing:-5px;
 }
 
-.gradient {
+.gradient{
     background:linear-gradient(
         90deg,
         var(--cyan),
-        #63f7df,
+        #64f7df,
         #a78bfa,
         #ff7be4
     );
@@ -211,155 +230,79 @@ h1 {
     color:transparent;
 }
 
-.hero-copy {
-    max-width:700px;
+.hero-text{
+    max-width:720px;
     margin:auto;
     color:var(--muted);
-    font-size:19px;
+    font-size:18px;
     line-height:1.75;
 }
 
-.actions {
+.actions{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:13px;
-    margin-top:32px;
+    gap:12px;
+    margin-top:30px;
 }
 
-.btn {
+.btn{
     display:inline-flex;
     justify-content:center;
     align-items:center;
-    min-width:175px;
-    padding:15px 23px;
+    min-width:165px;
+    padding:14px 22px;
     border-radius:999px;
     text-decoration:none;
-    font-weight:850;
+    font-weight:900;
     transition:.2s;
 }
 
-.btn:hover {
+.btn:hover{
     transform:translateY(-3px);
 }
 
-.primary {
+.primary{
     background:linear-gradient(100deg,var(--cyan),var(--blue),var(--violet));
-    box-shadow:0 12px 40px rgba(0,150,255,.28);
+    box-shadow:0 12px 40px rgba(0,150,255,.25);
 }
 
-.secondary {
+.secondary{
     border:1px solid var(--line);
     background:rgba(255,255,255,.05);
 }
 
-.preview {
-    padding:10px;
-    border:1px solid var(--line);
-    border-radius:30px;
-    background:rgba(255,255,255,.045);
-    box-shadow:0 35px 100px rgba(0,0,0,.4);
+section{
+    padding:70px 0;
 }
 
-.window {
-    overflow:hidden;
-    border-radius:22px;
-    background:#0a1020;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.window-bar {
-    display:flex;
-    gap:7px;
-    padding:14px 17px;
-    border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-.window-bar span {
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    background:rgba(255,255,255,.28);
-}
-
-.dashboard {
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:18px;
-    padding:25px;
-}
-
-.panel {
-    padding:25px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,.09);
-    background:rgba(255,255,255,.045);
-}
-
-.panel h3 {
-    margin:10px 0;
-    font-size:28px;
-}
-
-.panel p {
-    color:#94a2ba;
-    line-height:1.65;
-}
-
-.mini-logo {
-    width:58px;
-    height:58px;
-    border-radius:18px;
-    background:linear-gradient(135deg,var(--cyan),var(--violet));
-    box-shadow:0 0 25px rgba(0,200,255,.3);
-}
-
-.stat {
-    display:flex;
-    justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid rgba(255,255,255,.07);
-    color:#cbd6e8;
-}
-
-.stat:last-child {
-    border-bottom:0;
-}
-
-.stat strong {
-    color:white;
-}
-
-section {
-    padding:75px 0;
-}
-
-.section-head {
-    max-width:700px;
+.section-title{
+    max-width:720px;
     margin-bottom:30px;
 }
 
-.section-head h2 {
-    margin:0 0 12px;
-    font-size:clamp(35px,5vw,52px);
+.section-title h2{
+    margin:0 0 10px;
+    font-size:clamp(34px,5vw,52px);
+    line-height:1.05;
     letter-spacing:-2.5px;
 }
 
-.section-head p {
+.section-title p{
+    margin:0;
     color:var(--muted);
-    line-height:1.7;
 }
 
-.cards {
+.cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:17px;
 }
 
-.card {
+.card{
     padding:28px;
-    border-radius:24px;
     border:1px solid var(--line);
+    border-radius:24px;
     background:linear-gradient(
         145deg,
         rgba(255,255,255,.075),
@@ -367,58 +310,120 @@ section {
     );
 }
 
-.icon {
+.icon{
     width:50px;
     height:50px;
     display:grid;
     place-items:center;
-    margin-bottom:18px;
+    margin-bottom:17px;
     border-radius:16px;
-    background:rgba(0,200,255,.09);
     border:1px solid rgba(0,200,255,.16);
-    font-size:24px;
+    background:rgba(0,200,255,.08);
+    font-size:23px;
 }
 
-.card h3 {
-    margin:0 0 10px;
+.card h3{
+    margin:0 0 9px;
     font-size:21px;
 }
 
-.card p {
+.card p{
     margin:0;
-    color:#9ba8bd;
-    line-height:1.65;
+    color:#9daabd;
+    line-height:1.7;
 }
 
-.two {
+.two{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:18px;
 }
 
-.big-card {
+.panel{
     padding:32px;
-    border-radius:26px;
     border:1px solid var(--line);
+    border-radius:26px;
     background:rgba(255,255,255,.045);
 }
 
-.big-card h3 {
-    font-size:25px;
-    margin-top:0;
+.panel h3{
+    margin:0 0 13px;
+    font-size:26px;
 }
 
-.big-card p,
-.big-card li {
-    color:#9ba8bd;
+.panel p,
+.panel li{
+    color:#a2aec1;
     line-height:1.7;
 }
 
-.launch {
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:20px;
+}
+
+.info{
+    padding:17px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    background:rgba(255,255,255,.035);
+}
+
+.info span{
+    display:block;
+    margin-bottom:4px;
+    color:#77869e;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+}
+
+.info strong{
+    font-size:15px;
+}
+
+.notice{
+    padding:25px;
+    border-radius:22px;
+    border:1px solid rgba(255,200,80,.2);
+    background:rgba(255,190,70,.045);
+}
+
+.notice h3{
+    margin:0 0 8px;
+}
+
+.notice p{
+    margin:0;
+    color:#b9b6a8;
+}
+
+.policy{
+    margin-top:15px;
+    padding:25px;
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:rgba(255,255,255,.035);
+}
+
+.policy h3{
+    margin-top:0;
+}
+
+.policy p,
+.policy li{
+    color:#9daabd;
+    line-height:1.75;
+}
+
+.launch{
     text-align:center;
-    padding:60px 25px;
-    border-radius:30px;
+    padding:65px 25px;
     border:1px solid rgba(0,200,255,.18);
+    border-radius:30px;
     background:
         radial-gradient(
             circle at 50% 0%,
@@ -428,70 +433,65 @@ section {
         rgba(255,255,255,.04);
 }
 
-.launch h2 {
+.launch h2{
     margin:0 0 12px;
     font-size:clamp(36px,5vw,52px);
     letter-spacing:-2px;
 }
 
-.launch p {
-    max-width:650px;
+.launch p{
+    max-width:670px;
     margin:auto;
     color:var(--muted);
-    line-height:1.7;
 }
 
-.disclosure {
-    max-width:800px;
-    margin:35px auto 0;
-    padding:18px 20px;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.035);
-    color:#7f8da5;
-    font-size:12px;
-    line-height:1.6;
-    text-align:center;
-}
-
-footer {
+footer{
     margin-top:50px;
-    padding:35px 0 45px;
+    padding:35px 0 50px;
     border-top:1px solid rgba(255,255,255,.08);
     text-align:center;
-    color:#6f7d95;
-    font-size:14px;
+    color:#718097;
+    font-size:13px;
 }
 
-@media(max-width:760px) {
+.footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:12px;
+}
 
-    .wrap {
-        width:calc(100% - 26px);
+.footer-links a{
+    color:#9aa7bb;
+    text-decoration:none;
+}
+
+@media(max-width:760px){
+
+    .wrap{
+        width:calc(100% - 24px);
     }
 
-    nav {
-        padding:17px 0;
+    .nav-links a{
+        display:none;
     }
 
-    .hero {
-        padding:58px 0 70px;
+    .hero{
+        padding:58px 0 65px;
     }
 
-    h1 {
+    h1{
         letter-spacing:-3px;
     }
 
-    .dashboard,
+    .cards,
     .two,
-    .cards {
+    .info-grid{
         grid-template-columns:1fr;
     }
 
-    .dashboard {
-        padding:16px;
-    }
-
-    section {
+    section{
         padding:52px 0;
     }
 }
@@ -505,120 +505,66 @@ footer {
 <nav>
 
 <a class="brand" href="#">
-<div class="brand-mark"></div>
+<div class="logo"></div>
 <span>WaveLink</span>
 </a>
 
-<a class="nav-pill" href="#launch">
-Coming Soon
-</a>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#safety">Trust & Safety</a>
+<a href="#business">Business</a>
+<a href="#contact">Contact</a>
+<span class="nav-badge">18+ PLATFORM</span>
+</div>
 
 </nav>
 
 <header class="hero">
 
-<div class="hero-mark"></div>
+<div class="hero-logo"></div>
 
 <div class="badge">
 <span class="dot"></span>
-Next-generation creator platform
+18+ Creator Platform · In Development
 </div>
 
 <h1>
-Ride the <span class="gradient">next wave</span><br>
-of creator connections.
+The next wave of
+<span class="gradient">creator connections.</span>
 </h1>
 
-<p class="hero-copy">
-WaveLink is a modern creator platform in development,
-designed to help creators build communities, connect with
-audiences, and create better digital experiences.
+<p class="hero-text">
+WaveLink is a next-generation digital creator platform
+being developed for adults 18 and older. Our goal is to
+give creators modern tools for building communities,
+connecting with audiences, and managing digital content.
 </p>
 
 <div class="actions">
 
-<a class="btn primary" href="#features">
+<a class="btn primary" href="#about">
 Explore WaveLink
 </a>
 
-<a class="btn secondary" href="#launch">
-See What's Coming
+<a class="btn secondary" href="#business">
+Business Information
 </a>
 
 </div>
 
 </header>
 
-<div class="preview">
+<section id="about">
 
-<div class="window">
+<div class="section-title">
 
-<div class="window-bar">
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-<div class="dashboard">
-
-<div class="panel">
-
-<div class="mini-logo"></div>
-
-<h3>
-Built around creators.
-</h3>
+<h2>Built around creators.</h2>
 
 <p>
-A clean, mobile-first experience for creator
-profiles, communities, digital content,
-and audience connections.
-</p>
-
-</div>
-
-<div class="panel">
-
-<div class="stat">
-<span>Creator tools</span>
-<strong>∞</strong>
-</div>
-
-<div class="stat">
-<span>Community</span>
-<strong>Live</strong>
-</div>
-
-<div class="stat">
-<span>Mobile-first</span>
-<strong>100%</strong>
-</div>
-
-<div class="stat">
-<span>Platform status</span>
-<strong>Building</strong>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<section id="features">
-
-<div class="section-head">
-
-<h2>
-Everything starts with a connection.
-</h2>
-
-<p>
-WaveLink is being built with creators at the center:
-simple tools, strong communities, and a polished
-experience across devices.
+WaveLink is being developed as a mobile-first platform
+for adult creators and their audiences, with an emphasis
+on usability, community, safety, and responsible platform
+operations.
 </p>
 
 </div>
@@ -626,48 +572,30 @@ experience across devices.
 <div class="cards">
 
 <div class="card">
-
 <div class="icon">🌊</div>
-
-<h3>
-Creator Profiles
-</h3>
-
+<h3>Creator Profiles</h3>
 <p>
-Give creators a polished home for their identity,
-content, audience, and community.
+Creators will be able to establish a dedicated profile
+and present their digital presence to their audience.
 </p>
-
 </div>
 
 <div class="card">
-
 <div class="icon">⚡</div>
-
-<h3>
-Powerful Connections
-</h3>
-
+<h3>Audience Connections</h3>
 <p>
-Build meaningful audience relationships with modern
-communication and community tools.
+WaveLink is designed to provide tools for creators and
+their audiences to interact through a modern experience.
 </p>
-
 </div>
 
 <div class="card">
-
-<div class="icon">✨</div>
-
-<h3>
-Digital Experiences
-</h3>
-
+<div class="icon">📱</div>
+<h3>Mobile First</h3>
 <p>
-Create flexible digital experiences designed
-around the creator and their audience.
+The platform is being designed around the devices
+creators and audiences use every day.
 </p>
-
 </div>
 
 </div>
@@ -678,31 +606,42 @@ around the creator and their audience.
 
 <div class="two">
 
-<div class="big-card">
+<div class="panel">
 
-<h3>
-🤖 Creator Technology
-</h3>
+<h3>Creator-focused technology</h3>
 
 <p>
-WaveLink is designed with intelligent tools in mind,
-helping creators organize their work, understand their
-audience, and spend more time creating.
+WaveLink is being developed with creator management,
+digital content organization, audience engagement,
+and community features in mind.
 </p>
+
+<ul>
+<li>Creator profile infrastructure</li>
+<li>Digital content management</li>
+<li>Audience and community tools</li>
+<li>Mobile-first platform design</li>
+</ul>
 
 </div>
 
-<div class="big-card">
+<div class="panel" id="safety">
 
-<h3>
-🛡️ Trust & Safety
-</h3>
+<h3>Trust & Safety</h3>
 
 <p>
-Safety, privacy, moderation, identity verification,
-and responsible platform design are important parts
-of the WaveLink roadmap.
+Because WaveLink is intended for adults 18 and older,
+responsible platform operation is a core part of the
+product roadmap.
 </p>
+
+<ul>
+<li>18+ age restriction</li>
+<li>Content moderation systems</li>
+<li>Reporting and abuse-prevention processes</li>
+<li>Privacy-focused account handling</li>
+<li>Policies designed to protect users and creators</li>
+</ul>
 
 </div>
 
@@ -712,33 +651,68 @@ of the WaveLink roadmap.
 
 <section>
 
-<div class="two">
+<div class="notice">
 
-<div class="big-card">
-
-<h3>
-📱 Mobile First
-</h3>
+<h3>🔞 Adults 18+ Only</h3>
 
 <p>
-WaveLink is being designed around the way creators
-and audiences actually use the internet — primarily
-from their phones.
+WaveLink is intended exclusively for adults who are
+18 years of age or older. The platform is being developed
+for adult creators and adult audiences. Users will be
+required to meet applicable age and eligibility requirements
+before accessing restricted platform functionality.
 </p>
 
 </div>
 
-<div class="big-card">
+</section>
 
-<h3>
-💫 Built for What's Next
-</h3>
+<section id="business">
+
+<div class="section-title">
+
+<h2>Business Information</h2>
 
 <p>
-We're building the foundation for a flexible creator
-ecosystem that can evolve as creators and communities
-need new tools.
+Information about the WaveLink project and its current
+business structure.
 </p>
+
+</div>
+
+<div class="panel">
+
+<div class="info-grid">
+
+<div class="info">
+<span>Business / Project</span>
+<strong>WaveLink</strong>
+</div>
+
+<div class="info">
+<span>Business Structure</span>
+<strong>Sole Proprietorship</strong>
+</div>
+
+<div class="info">
+<span>Owner</span>
+<strong>Gregory Hulbert</strong>
+</div>
+
+<div class="info">
+<span>Business Location</span>
+<strong>Washington, USA</strong>
+</div>
+
+<div class="info">
+<span>Industry</span>
+<strong>Digital Creator Platform / Software Services</strong>
+</div>
+
+<div class="info">
+<span>Platform Status</span>
+<strong>Development & Testing</strong>
+</div>
 
 </div>
 
@@ -746,32 +720,159 @@ need new tools.
 
 </section>
 
-<section id="launch">
+<section id="privacy">
+
+<div class="section-title">
+
+<h2>Privacy & Data</h2>
+
+<p>
+WaveLink is being designed with privacy and responsible
+handling of user information in mind.
+</p>
+
+</div>
+
+<div class="policy">
+
+<h3>Privacy Policy</h3>
+
+<p>
+WaveLink respects the privacy of creators and users.
+Information collected through the platform may include
+account information, profile information, communications,
+content, and technical information required to operate
+and secure the service.
+</p>
+
+<p>
+Information may be used for purposes such as providing
+platform functionality, account management, security,
+customer support, moderation, fraud prevention, and
+service improvement.
+</p>
+
+<p>
+WaveLink will not intentionally sell personal information
+to third parties for unrelated purposes. Information may
+be disclosed when necessary to operate the service, comply
+with legal obligations, protect users, or prevent fraud,
+abuse, or security threats.
+</p>
+
+<p>
+As the platform develops, this policy will be updated to
+reflect the actual systems, vendors, data practices, and
+legal requirements applicable to WaveLink.
+</p>
+
+</div>
+
+</section>
+
+<section id="terms">
+
+<div class="section-title">
+
+<h2>Terms of Service</h2>
+
+<p>
+The following summarizes the intended rules for using
+WaveLink.
+</p>
+
+</div>
+
+<div class="policy">
+
+<h3>Platform Rules</h3>
+
+<ul>
+<li>WaveLink is intended only for users 18 years of age or older.</li>
+<li>Users must provide accurate account information.</li>
+<li>Users may not impersonate another person.</li>
+<li>Illegal content and illegal activity are prohibited.</li>
+<li>Content involving minors is strictly prohibited.</li>
+<li>Non-consensual intimate content is prohibited.</li>
+<li>Harassment, threats, exploitation, and abuse are prohibited.</li>
+<li>Fraudulent activity and payment abuse are prohibited.</li>
+<li>WaveLink may investigate reports and restrict accounts that violate platform rules.</li>
+</ul>
+
+<p>
+These terms are a current public summary while the platform
+is under development. Final Terms of Service will be published
+before public launch and will govern actual use of the service.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="section-title">
+
+<h2>Responsible Platform Design</h2>
+
+<p>
+WaveLink is being designed with creator safety, audience
+safety, privacy, moderation, and legal compliance in mind.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🛡️</div>
+<h3>Safety</h3>
+<p>
+Systems and procedures will be developed to identify,
+report, investigate, and address prohibited behavior.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🔐</div>
+<h3>Privacy</h3>
+<p>
+Account and platform information will be handled with
+security and privacy considerations built into the product.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⚖️</div>
+<h3>Compliance</h3>
+<p>
+WaveLink will establish policies and operational procedures
+appropriate to the services actually offered at launch.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
 
 <div class="launch">
 
-<h2>
-🚀 WaveLink is coming.
-</h2>
+<h2>Have a question?</h2>
 
 <p>
-The platform is currently in development and testing.
-We're building the product, technology, and infrastructure
-for a future launch.
+WaveLink is currently in development. For business,
+partnership, platform, or support inquiries, contact us
+using the email below.
 </p>
 
 <div class="actions">
 
-<a class="btn primary" href="#features">
-Explore the Platform
+<a class="btn primary" href="mailto:WaveLinkxxx@gmail.com">
+WaveLinkxxx@gmail.com
 </a>
 
-</div>
-
-<div class="disclosure">
-WaveLink is an independent creator-platform project currently
-in development. Features shown on this website may represent
-planned functionality and are not necessarily available yet.
 </div>
 
 </div>
@@ -780,7 +881,24 @@ planned functionality and are not necessarily available yet.
 
 <footer>
 
-© 2026 WaveLink · The future is connected. 🌊
+<strong>WaveLink 🌊</strong>
+
+<div class="footer-links">
+<a href="#about">About</a>
+<a href="#safety">Trust & Safety</a>
+<a href="#business">Business</a>
+<a href="#privacy">Privacy</a>
+<a href="#terms">Terms</a>
+<a href="#contact">Contact</a>
+</div>
+
+<p>
+© 2026 WaveLink. All rights reserved.
+</p>
+
+<p>
+18+ only. WaveLink is currently in development.
+</p>
 
 </footer>
 
@@ -788,3 +906,4 @@ planned functionality and are not necessarily available yet.
 
 </body>
 </html>
+```
