@@ -3,239 +3,788 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WaveLink | Creator Platform</title>
-
-<meta name="description" content="WaveLink is a next-generation digital creator platform currently in development.">
+<meta name="theme-color" content="#050816">
+<meta name="description" content="WaveLink is a next-generation creator platform built for creators, communities, and digital experiences.">
+<title>WaveLink — The Next Wave</title>
 
 <style>
+:root {
+    --bg:#050816;
+    --panel:rgba(255,255,255,.07);
+    --line:rgba(255,255,255,.12);
+    --text:#f8fbff;
+    --muted:#a8b3c7;
+    --cyan:#00c8ff;
+    --blue:#168cff;
+    --violet:#8b5cf6;
+    --pink:#ff4ecd;
+}
 
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #050816;
-    color: white;
+    margin:0;
+    min-height:100vh;
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(0,200,255,.16),transparent 28%),
+        radial-gradient(circle at 85% 20%,rgba(139,92,246,.18),transparent 30%),
+        radial-gradient(circle at 50% 80%,rgba(255,78,205,.08),transparent 32%),
+        var(--bg);
+    overflow-x:hidden;
 }
 
-header {
-    text-align: center;
-    padding: 70px 20px;
+body:before {
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:44px 44px;
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+a {
+    color:inherit;
 }
 
-.wave {
-    width: 75px;
-    height: 75px;
-    border-radius: 25px;
-    background: linear-gradient(135deg, #00aff0, #7c3cff);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 35px #00aff0;
+.wrap {
+    width:min(1120px,calc(100% - 36px));
+    margin:auto;
 }
 
-.wave:before,
-.wave:after {
-    content: "";
-    position: absolute;
-    width: 140%;
-    height: 28px;
-    left: -20%;
-    background: white;
-    border-radius: 50%;
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:24px 0;
 }
 
-.wave:before {
-    top: 22px;
+.brand {
+    display:flex;
+    align-items:center;
+    gap:11px;
+    text-decoration:none;
+    font-weight:900;
+    font-size:21px;
 }
 
-.wave:after {
-    top: 45px;
-    opacity: .45;
+.brand-mark {
+    width:42px;
+    height:42px;
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--cyan),var(--blue),var(--violet));
+    box-shadow:0 0 30px rgba(0,200,255,.45);
 }
 
-.logo-text {
-    font-size: 58px;
-    font-weight: 900;
-    letter-spacing: -4px;
-    background: linear-gradient(90deg, #00aff0, #00ffe0, #8b5cf6);
-    -webkit-background-clip: text;
-    color: transparent;
+.brand-mark:before,
+.brand-mark:after {
+    content:"";
+    position:absolute;
+    width:140%;
+    height:12px;
+    left:-20%;
+    border-radius:50%;
+    background:white;
+    transform:rotate(-8deg);
+}
+
+.brand-mark:before {
+    top:12px;
+}
+
+.brand-mark:after {
+    top:23px;
+    opacity:.42;
+}
+
+.nav-pill {
+    padding:10px 16px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.05);
+    font-size:13px;
+    font-weight:bold;
+}
+
+.hero {
+    position:relative;
+    text-align:center;
+    padding:75px 0 90px;
+}
+
+.hero-mark {
+    width:96px;
+    height:96px;
+    margin:0 auto 27px;
+    position:relative;
+    overflow:hidden;
+    border-radius:31px;
+    background:linear-gradient(135deg,var(--cyan),#00f0d0,var(--violet));
+    box-shadow:
+        0 0 35px rgba(0,200,255,.6),
+        0 0 90px rgba(139,92,246,.25);
+    animation:float 4s ease-in-out infinite;
+}
+
+.hero-mark:before,
+.hero-mark:after {
+    content:"";
+    position:absolute;
+    width:150%;
+    height:27px;
+    left:-25%;
+    border-radius:50%;
+    background:white;
+    transform:rotate(-8deg);
+}
+
+.hero-mark:before {
+    top:24px;
+}
+
+.hero-mark:after {
+    top:60px;
+    opacity:.28;
+}
+
+@keyframes float {
+    0%,100% {
+        transform:translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform:translateY(-9px) rotate(2deg);
+    }
+}
+
+.badge {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid rgba(0,200,255,.25);
+    background:rgba(0,200,255,.07);
+    color:#8beaff;
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+}
+
+.dot {
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#38f8b1;
+    box-shadow:0 0 12px #38f8b1;
 }
 
 h1 {
-    font-size: 48px;
-    margin: 40px auto 20px;
-    max-width: 800px;
+    max-width:950px;
+    margin:25px auto 20px;
+    font-size:clamp(48px,8vw,88px);
+    line-height:.96;
+    letter-spacing:-5px;
 }
 
-.highlight {
-    color: #00aff0;
+.gradient {
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        #63f7df,
+        #a78bfa,
+        #ff7be4
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
-.hero-text {
-    max-width: 650px;
-    margin: auto;
-    color: #aeb8cc;
-    font-size: 19px;
-    line-height: 1.7;
+.hero-copy {
+    max-width:700px;
+    margin:auto;
+    color:var(--muted);
+    font-size:19px;
+    line-height:1.75;
 }
 
-.button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 16px 30px;
-    border-radius: 50px;
-    background: linear-gradient(90deg, #00aff0, #7c3cff);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 0 30px rgba(0,175,240,.4);
+.actions {
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:13px;
+    margin-top:32px;
 }
 
-.container {
-    max-width: 950px;
-    margin: auto;
-    padding: 20px;
+.btn {
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    min-width:175px;
+    padding:15px 23px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:850;
+    transition:.2s;
+}
+
+.btn:hover {
+    transform:translateY(-3px);
+}
+
+.primary {
+    background:linear-gradient(100deg,var(--cyan),var(--blue),var(--violet));
+    box-shadow:0 12px 40px rgba(0,150,255,.28);
+}
+
+.secondary {
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.05);
+}
+
+.preview {
+    padding:10px;
+    border:1px solid var(--line);
+    border-radius:30px;
+    background:rgba(255,255,255,.045);
+    box-shadow:0 35px 100px rgba(0,0,0,.4);
+}
+
+.window {
+    overflow:hidden;
+    border-radius:22px;
+    background:#0a1020;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.window-bar {
+    display:flex;
+    gap:7px;
+    padding:14px 17px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.window-bar span {
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:rgba(255,255,255,.28);
+}
+
+.dashboard {
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:18px;
+    padding:25px;
+}
+
+.panel {
+    padding:25px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.045);
+}
+
+.panel h3 {
+    margin:10px 0;
+    font-size:28px;
+}
+
+.panel p {
+    color:#94a2ba;
+    line-height:1.65;
+}
+
+.mini-logo {
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    background:linear-gradient(135deg,var(--cyan),var(--violet));
+    box-shadow:0 0 25px rgba(0,200,255,.3);
+}
+
+.stat {
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    color:#cbd6e8;
+}
+
+.stat:last-child {
+    border-bottom:0;
+}
+
+.stat strong {
+    color:white;
+}
+
+section {
+    padding:75px 0;
+}
+
+.section-head {
+    max-width:700px;
+    margin-bottom:30px;
+}
+
+.section-head h2 {
+    margin:0 0 12px;
+    font-size:clamp(35px,5vw,52px);
+    letter-spacing:-2.5px;
+}
+
+.section-head p {
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.cards {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
 }
 
 .card {
-    padding: 30px;
-    margin: 20px 0;
-    border-radius: 25px;
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.12);
+    padding:28px;
+    border-radius:24px;
+    border:1px solid var(--line);
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.025)
+    );
 }
 
-.card h2 {
-    font-size: 27px;
+.icon {
+    width:50px;
+    height:50px;
+    display:grid;
+    place-items:center;
+    margin-bottom:18px;
+    border-radius:16px;
+    background:rgba(0,200,255,.09);
+    border:1px solid rgba(0,200,255,.16);
+    font-size:24px;
 }
 
-.card p,
-.card li {
-    color: #aeb8cc;
-    line-height: 1.7;
+.card h3 {
+    margin:0 0 10px;
+    font-size:21px;
+}
+
+.card p {
+    margin:0;
+    color:#9ba8bd;
+    line-height:1.65;
+}
+
+.two {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.big-card {
+    padding:32px;
+    border-radius:26px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.045);
+}
+
+.big-card h3 {
+    font-size:25px;
+    margin-top:0;
+}
+
+.big-card p,
+.big-card li {
+    color:#9ba8bd;
+    line-height:1.7;
+}
+
+.launch {
+    text-align:center;
+    padding:60px 25px;
+    border-radius:30px;
+    border:1px solid rgba(0,200,255,.18);
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0,200,255,.14),
+            transparent 60%
+        ),
+        rgba(255,255,255,.04);
+}
+
+.launch h2 {
+    margin:0 0 12px;
+    font-size:clamp(36px,5vw,52px);
+    letter-spacing:-2px;
+}
+
+.launch p {
+    max-width:650px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.disclosure {
+    max-width:800px;
+    margin:35px auto 0;
+    padding:18px 20px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.035);
+    color:#7f8da5;
+    font-size:12px;
+    line-height:1.6;
+    text-align:center;
 }
 
 footer {
-    text-align: center;
-    padding: 50px 20px;
-    color: #68758d;
+    margin-top:50px;
+    padding:35px 0 45px;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    color:#6f7d95;
+    font-size:14px;
 }
 
-@media (max-width: 600px) {
+@media(max-width:760px) {
 
-    .logo {
-        flex-direction: column;
+    .wrap {
+        width:calc(100% - 26px);
     }
 
-    .logo-text {
-        font-size: 50px;
+    nav {
+        padding:17px 0;
+    }
+
+    .hero {
+        padding:58px 0 70px;
     }
 
     h1 {
-        font-size: 38px;
+        letter-spacing:-3px;
     }
 
-}
+    .dashboard,
+    .two,
+    .cards {
+        grid-template-columns:1fr;
+    }
 
+    .dashboard {
+        padding:16px;
+    }
+
+    section {
+        padding:52px 0;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<header>
+<div class="wrap">
 
-<div class="logo">
+<nav>
 
-<div class="wave"></div>
+<a class="brand" href="#">
+<div class="brand-mark"></div>
+<span>WaveLink</span>
+</a>
 
-<div class="logo-text">
-WaveLink
-</div>
+<a class="nav-pill" href="#launch">
+Coming Soon
+</a>
 
+</nav>
+
+<header class="hero">
+
+<div class="hero-mark"></div>
+
+<div class="badge">
+<span class="dot"></span>
+Next-generation creator platform
 </div>
 
 <h1>
-The next wave of
-<span class="highlight">creator connections.</span>
+Ride the <span class="gradient">next wave</span><br>
+of creator connections.
 </h1>
 
-<p class="hero-text">
-WaveLink is a next-generation digital creator platform currently in development, designed to help creators connect with their audiences and build stronger digital communities.
+<p class="hero-copy">
+WaveLink is a modern creator platform in development,
+designed to help creators build communities, connect with
+audiences, and create better digital experiences.
 </p>
 
-<a class="button" href="#about">
+<div class="actions">
+
+<a class="btn primary" href="#features">
 Explore WaveLink
 </a>
 
+<a class="btn secondary" href="#launch">
+See What's Coming
+</a>
+
+</div>
+
 </header>
 
-<main class="container">
+<div class="preview">
 
-<div class="card" id="about">
+<div class="window">
 
-<h2>🌊 Built for Creators</h2>
+<div class="window-bar">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="dashboard">
+
+<div class="panel">
+
+<div class="mini-logo"></div>
+
+<h3>
+Built around creators.
+</h3>
 
 <p>
-WaveLink is being developed to give creators modern tools for building profiles, connecting with subscribers, and creating engaging digital experiences.
+A clean, mobile-first experience for creator
+profiles, communities, digital content,
+and audience connections.
+</p>
+
+</div>
+
+<div class="panel">
+
+<div class="stat">
+<span>Creator tools</span>
+<strong>∞</strong>
+</div>
+
+<div class="stat">
+<span>Community</span>
+<strong>Live</strong>
+</div>
+
+<div class="stat">
+<span>Mobile-first</span>
+<strong>100%</strong>
+</div>
+
+<div class="stat">
+<span>Platform status</span>
+<strong>Building</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<section id="features">
+
+<div class="section-head">
+
+<h2>
+Everything starts with a connection.
+</h2>
+
+<p>
+WaveLink is being built with creators at the center:
+simple tools, strong communities, and a polished
+experience across devices.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">🌊</div>
+
+<h3>
+Creator Profiles
+</h3>
+
+<p>
+Give creators a polished home for their identity,
+content, audience, and community.
 </p>
 
 </div>
 
 <div class="card">
 
-<h2>⚡ Our Vision</h2>
+<div class="icon">⚡</div>
 
-<ul>
-<li>Modern creator profiles</li>
-<li>Community and subscriber tools</li>
-<li>Mobile-first experiences</li>
-<li>Digital content management</li>
-<li>Creator-focused technology</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>🚀 Coming Soon</h2>
+<h3>
+Powerful Connections
+</h3>
 
 <p>
-WaveLink is currently in development and testing. We are building the platform and infrastructure for a future launch.
+Build meaningful audience relationships with modern
+communication and community tools.
 </p>
 
 </div>
 
 <div class="card">
 
-<h2>Business Information</h2>
+<div class="icon">✨</div>
+
+<h3>
+Digital Experiences
+</h3>
 
 <p>
-<strong>WaveLink</strong><br>
-Digital Creator Platform / Software Services<br>
-Washington, USA
+Create flexible digital experiences designed
+around the creator and their audience.
 </p>
 
 </div>
 
-</main>
+</div>
+
+</section>
+
+<section>
+
+<div class="two">
+
+<div class="big-card">
+
+<h3>
+🤖 Creator Technology
+</h3>
+
+<p>
+WaveLink is designed with intelligent tools in mind,
+helping creators organize their work, understand their
+audience, and spend more time creating.
+</p>
+
+</div>
+
+<div class="big-card">
+
+<h3>
+🛡️ Trust & Safety
+</h3>
+
+<p>
+Safety, privacy, moderation, identity verification,
+and responsible platform design are important parts
+of the WaveLink roadmap.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="two">
+
+<div class="big-card">
+
+<h3>
+📱 Mobile First
+</h3>
+
+<p>
+WaveLink is being designed around the way creators
+and audiences actually use the internet — primarily
+from their phones.
+</p>
+
+</div>
+
+<div class="big-card">
+
+<h3>
+💫 Built for What's Next
+</h3>
+
+<p>
+We're building the foundation for a flexible creator
+ecosystem that can evolve as creators and communities
+need new tools.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="launch">
+
+<div class="launch">
+
+<h2>
+🚀 WaveLink is coming.
+</h2>
+
+<p>
+The platform is currently in development and testing.
+We're building the product, technology, and infrastructure
+for a future launch.
+</p>
+
+<div class="actions">
+
+<a class="btn primary" href="#features">
+Explore the Platform
+</a>
+
+</div>
+
+<div class="disclosure">
+WaveLink is an independent creator-platform project currently
+in development. Features shown on this website may represent
+planned functionality and are not necessarily available yet.
+</div>
+
+</div>
+
+</section>
 
 <footer>
 
-© 2026 WaveLink 🌊<br>
-The future is connected.
+© 2026 WaveLink · The future is connected. 🌊
 
 </footer>
+
+</div>
 
 </body>
 </html>
